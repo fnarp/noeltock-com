@@ -14,23 +14,12 @@ get_header(); ?>
       <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
         <header>
           <h2 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-          <time datetime="<?php the_time('Y-m-d')?>"><?php the_time('F jS, Y') ?></time>
-          <span class="author">by <?php the_author() ?></span>
+          <div class="post-meta"><time datetime="<?php the_time('Y-m-d')?>"><?php the_time('F jS, Y') ?></time> | Posted in <?php the_category(', ') ?></div>
         </header>
         <?php the_content('Read the rest of this entry &raquo;'); ?>
-        <footer>
-          <?php the_tags('Tags: ', ', ', '<br />'); ?> 
-          Posted in <?php the_category(', ') ?>
-          | <?php edit_post_link('Edit', '', ' | '); ?>
-        </footer>
       </article>
 
     <?php endwhile; ?>
-
-    <nav>
-      <div><?php next_posts_link('&laquo; Older Entries') ?></div>
-      <div><?php previous_posts_link('Newer Entries &raquo;') ?></div>
-    </nav>
 
   <?php else : ?>
 

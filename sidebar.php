@@ -5,13 +5,36 @@
  */
 ?>
 <aside id="sidebar">
-  <?php   /* Widgetized sidebar, if you have the plugin installed. */
-      if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
-
   <section>
     <?php get_search_form(); ?>
   </section>
+    
+  <section class="widget" id="recentposts">
+      <h4 class="widget">recent posts</h3>
+           <?php
+            wp_reset_query();
+                $args = array('post_status' => 'publish', 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'ID');
+                $postslist = get_posts( $args );
+                foreach ($postslist as $post) :  setup_postdata($post);
+                $image_id = get_post_thumbnail_id();
+                $image_url = wp_get_attachment_image_src($image_id);
+                $image_url = $image_url[0];?>
+                <div class="recent-posts">
+                        <div class="recent-thumb-bg"></div>
+                        <div class="thumb-side recent-thumb animated">
+                            <a href="<?php the_permalink(); ?>"><div style="background: url('<?php echo $image_url; ?>'); width:50px; height:50px;margin:0;"></div></a>
+                        </div>
+                        <div class="recent-title">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            <span class="recent-date"><?php the_time('F jS, Y') ?></date>
+                        </div>
+                    </div>
 
+                <div class="clearfix"></div>
+            <?php endforeach;
+            wp_reset_query();?>
+    </section>  
+    
   <!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
   <section>
     <h2>Author</h2>
@@ -20,7 +43,7 @@
   -->
 
   <?php if ( is_404() || is_category() || is_day() || is_month() || is_year() || is_search() || is_paged() ) { ?> 
-  <section>
+  <section class="widget">
     
     <?php /* If this is a 404 page */ if (is_404()) { ?>
     <?php /* If this is a category archive */ } elseif (is_category()) { ?>
@@ -61,25 +84,5 @@
     <?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
   </nav>
 
-  <nav>
-    <ul>
-      <?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>
-        <?php wp_list_bookmarks(); ?>
-
-        <li><h2>Meta</h2>
-        <ul>
-          <?php wp_register(); ?>
-          <li><?php wp_loginout(); ?></li>
-          <li><a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional">Valid <abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a></li>
-          <li><a href="http://gmpg.org/xfn/"><abbr title="XHTML Friends Network">XFN</abbr></a></li>
-          <li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress</a></li>
-          <?php wp_meta(); ?>
-        </ul>
-        </li>
-      <?php } ?>
-
-      <?php endif; ?>
-    </ul>
-  </nav>
 </aside>
-
+<?php ?>

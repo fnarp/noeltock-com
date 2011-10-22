@@ -4,6 +4,13 @@
  * @subpackage HTML5_Boilerplate
  */
 
+define( 'NT_THEME', get_bloginfo( 'template_directory' ) );
+
+// require_once( NT_THEME . '/WPThumb/wpthumb.php' );
+
+add_theme_support( 'post-thumbnails' );
+set_post_thumbnail_size( 50, 50, true ); 
+
 automatic_feed_links();
 
 // Widgetized Sidebar HTML5 Markup
@@ -16,28 +23,16 @@ if ( function_exists('register_sidebar') ) {
 	));
 }
 
-// Custom Functions for CSS/Javascript Versioning
-$GLOBALS["TEMPLATE_URL"] = get_bloginfo('template_url')."/";
-$GLOBALS["TEMPLATE_RELATIVE_URL"] = wp_make_link_relative($GLOBALS["TEMPLATE_URL"]);
+// social media
 
-// Add ?v=[last modified time] to style sheets
-function versioned_stylesheet($relative_url, $add_attributes=""){
-  echo '<link rel="stylesheet" href="'.versioned_resource($relative_url).'" '.$add_attributes.'>'."\n";
-}
-
-// Add ?v=[last modified time] to javascripts
-function versioned_javascript($relative_url, $add_attributes=""){
-  echo '<script src="'.versioned_resource($relative_url).'" '.$add_attributes.'></script>'."\n";
-}
-
-// Add ?v=[last modified time] to a file url
-function versioned_resource($relative_url){
-  $file = $_SERVER["DOCUMENT_ROOT"].$relative_url;
-  $file_version = "";
-
-  if(file_exists($file)) {
-    $file_version = "?v=".filemtime($file);
-  }
-
-  return $relative_url.$file_version;
+function nt_socialmedia() {
+    ?>
+    <div class="socialmedia-wrapper">
+        <div class="socialmedia">
+            <g:plusone size="tall"></g:plusone>
+            <div></div>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+        </div>
+    </div>
+    <?php
 }
