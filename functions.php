@@ -6,10 +6,11 @@
 
 define( 'NT_THEME', get_bloginfo( 'template_directory' ) );
 
-include_once( NT_THEME . '/WPThumb/wpthumb.php' );
+// include_once( NT_THEME . '/WPThumb/wpthumb.php' );
 
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 50, 50, true ); 
+add_image_size( 'index-thumb', 100, 100, true ); // Footer Recent Posts & Freebies
 
 automatic_feed_links();
 
