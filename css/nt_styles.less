@@ -18,6 +18,13 @@
 @notice-bg: #FFDE6B;
 @notice: #8d6d00;
 
+@twitter:#3fc7f7;
+@google:#f2af16;
+@dribbble:#ea4c88;
+@flickr1:#0063dc;
+@flickr2:#ff0084;
+@forrst:#5b9a68;
+
 /* font stacks */
 
 @helvetica: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -30,6 +37,8 @@
 @baseline: 1.7em;
 
 /* images */
+
+@mask: "../images/sprite_mask.png";
 
 @mask100: "../images/mask100.png";
 @mask100-hover: "../images/mask100-hover.png";
@@ -60,6 +69,10 @@ span.notice {
         padding:2px 4px;
         .border-radius(2px);
         text-shadow: 0 1px 0 #fef6da;
+}
+
+span.nt-active {
+        color: @nt-active;
 }
 
 .photo {
@@ -134,7 +147,7 @@ body {
 
 nav#topbar {
         background: url( "@{bg-dark}" );
-        margin:0 0 60px 0;
+        margin:0 0 40px 0;
         padding:7px;
         .box-shadow;
 }
@@ -200,6 +213,39 @@ blockquote:before {
         text-shadow: 0 1px 1px rgba(0,0,0,1);
 }
 
+/* Profile
+* ----------------------------------------------------------------- */
+section#profile {
+        font-family:@museo;
+        text-shadow: 1px 1px 3px rgba(255,255,255,1) !important;
+        font-size:16px;
+        height:170px;
+        padding: 20px 45% 0 5%;
+        background: url('../images/profile-picture.jpg') no-repeat top right;
+        .border-radius(20px);
+        .box-shadow (inset 0px 1px 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+section#profile p {margin:0;padding:0;}
+
+/* Flickr
+* ----------------------------------------------------------------- */
+
+.flickr_badge_image {
+        float:left;
+        margin:2% !important;
+        width:75px;
+        height:75px;
+}
+
+.flickr_badge_image:nth-child(4n+5) {
+        margin-right:0px !important;
+}
+
+.flickr_badge_image img {.border-radius(20px);opacity:0.5;}
+.flickr_badge_image img:hover {opacity:1;}
+        
+
 /* Social Media
 * ----------------------------------------------------------------- */
 
@@ -220,6 +266,77 @@ blockquote:before {
         text-align:center !important;
 }
 
+#social-icons {
+        min-height:70px;
+        overflow:hidden !important;
+}
+
+.social-outer-bg {
+    position:absolute;
+    top:0;
+    width:70px;
+    height:70px;
+    background-image: url('../images/social-bg.png');
+}
+
+.social-icon {
+        .border-radius(25px);
+        overflow:hidden;
+        position:absolute;
+        top:10px;
+        left:10px;
+        width:50px;
+        height:50px;
+        -webkit-mask-image: url('../images/sprite_mask.png');
+        -webkit-mask-position: 0 -200px;
+        -webkit-transition-duration: 0.8s;
+        -moz-transition-duration: 0.8s;
+        -o-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+        -webkit-transition-property: -webkit-transform;
+        -moz-transition-property: -moz-transform;
+        -o-transition-property: -o-transform;
+        transition-property: transform;
+}
+
+.social-icon:hover {
+        -webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+}
+
+.social-inner-bg {
+    position:absolute;
+    top:0;
+    left:0;
+    width:50px;
+    height:50px;
+    background-image: url( "@{bg-dark}" );
+}
+.social-logo {
+    width:50px;
+    height:50px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-image: url('../images/sprite_mask.png');
+}
+
+.twitter-logo {background-position:-100px 0px !important;}
+.dribbble-logo {background-position:-100px -100px !important;}
+.flickr-logo {background-position:-100px -150px !important;}
+.forrst-logo {background-position:-100px -200px !important;}
+
+.twitter {left:20px;}
+.dribbble {left:100px;}
+.flickr {left:260px;}
+.forrst {left:180px;}
+
+.twitter-bg:hover {background-image:none;#gradient > .vertical(@twitter,(@twitter - #333))}
+.dribbble-bg:hover {background-image:none;#gradient > .vertical(@dribbble,(@dribbble - #333));}
+.flickr-bg:hover {background-image:none;#gradient > .horizontal(@flickr1,@flickr2;}
+.forrst-bg:hover {background-image:none;#gradient > .vertical(@forrst,(@forrst - #333));}
+
 /* Search
 * ----------------------------------------------------------------- */
 
@@ -239,7 +356,7 @@ blockquote:before {
         padding:4%;
         font-family:@museo;
         background: transparent url('../images/search.png') no-repeat 2% 55%;
-        text-indent:34px;
+        text-indent:44px;
         color: @white;
         border: none;
         text-shadow: 0 2px 1px rgba(0,0,0,1);
@@ -359,6 +476,10 @@ ul#primary-navigation li a:hover {
 /* Post
 * ----------------------------------------------------------------- */
 
+.post img.nt-image {
+    .border-radius(20px);
+}
+
 .like-this-post {
         .border-radius(10px);
         background-color:#ddd;
@@ -376,11 +497,24 @@ ul#primary-navigation li a:hover {
         text-shadow: 0 2px 1px rgba(0,0,0,1);
 }
 
+.nt-notice {
+        .border-radius(5px);
+        .gradientBar((@notice-bg + #333), @notice-bg);
+        color:@notice;
+        text-shadow: 0 1px 1px rgba(255,255,255,0.7);
+        padding:5px 10px;
+        border-style:solid;
+        border-width:1px;
+        margin:10px 0;
+}
+
 /* Sidebar
 * ----------------------------------------------------------------- */
 
 #sidebar section {
         margin-bottom:20px;
+        overflow:auto;
+        position:relative;
 }
 
 #sidebar section.widget {

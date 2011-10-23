@@ -5,11 +5,56 @@
  */
 ?>
 <aside id="sidebar">
-  <section>
-    <?php get_search_form(); ?>
-  </section>
     
-  <section class="widget" id="recentposts">
+    <section id="profile">
+        <p>hi, my name is noel tock and I blog about design, wordpress and running a web business. <span class="nt-active">connect</span> with me below...</p>
+    </section>
+
+
+    <section id="social-icons">
+        <div class="social-outer-bg twitter">
+        <a href="http://twitter.com/#!/noeltock">
+            <div class="social-icon">
+                <div class="social-inner-bg twitter-bg">
+                    <div class="social-logo twitter-logo"></div>
+                </div>
+            </div>
+        </a>
+        </div>
+
+        <div class="social-outer-bg dribbble">
+        <a href="http://dribbble.com/noeltock">
+            <div class="social-icon">
+                <div class="social-inner-bg dribbble-bg">
+                    <div class="social-logo dribbble-logo"></div>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="social-outer-bg forrst">
+        <a href="http://forrst.com/people/noeltock">
+            <div class="social-icon">
+                <div class="social-inner-bg forrst-bg">
+                    <div class="social-logo forrst-logo"></div>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+        <div class="social-outer-bg flickr">
+        <a href="http://www.flickr.com/photos/noelinthebahamas">
+            <div class="social-icon">
+                <div class="social-inner-bg flickr-bg">
+                    <div class="social-logo flickr-logo"></div>
+                </div>
+            </div>
+        </a>
+        </div>
+        
+    </section>
+      
+    <section class="widget" id="recentposts">
       <h4 class="widget">recent posts</h3>
            <?php
             wp_reset_query();
@@ -35,54 +80,42 @@
             wp_reset_query();?>
     </section>  
     
-  <!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
-  <section>
-    <h2>Author</h2>
-    <p>A little something about you, the author. Nothing lengthy, just an overview.</p>
-  </section>
-  -->
+    <section>
+        
+        <!-- Start of Flickr Badge -->
+        <style type="text/css">
+        /*
+        Images are wrapped in divs classed "flickr_badge_image" with ids "flickr_badge_imageX" where "X" is an integer specifying ordinal position. Below are some styles to get you started!
+        
+        #flickr_badge_uber_wrapper {text-align:center; width:150px;}
+        #flickr_badge_wrapper {padding:10px 0 10px 0;}
+        .flickr_badge_image {float:left;margin:0 10px 10px 10px;}
+        .flickr_badge_image img {border: 0px solid black !important;}
+        #flickr_badge_source {text-align:left; margin:0 10px 0 10px;}
+        #flickr_badge_icon {float:left; margin-right:5px;}
+        #flickr_www {display:block; padding:0 10px 0 10px !important; font: 11px Arial, Helvetica, Sans serif !important; color:#3993ff !important;}
+        #flickr_badge_uber_wrapper a:hover,
+        #flickr_badge_uber_wrapper a:link,
+        #flickr_badge_uber_wrapper a:active,
+        #flickr_badge_uber_wrapper a:visited {text-decoration:none !important; background:inherit !important;color:#3993ff;}
+        #flickr_badge_wrapper {}
+        #flickr_badge_source {padding:0 !important; font: 11px Arial, Helvetica, Sans serif !important; color:#666666 !important;}
+        */
+        .flickr_badge_image {float:left;margin:5px;}
+        .flickr_badge_image img {opacity:0.5;}
+        .flickr_badge_image img:hover {opacity:1;}
+        </style>
+        <div id="flickr">
+        <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&display=latest&size=s&layout=x&source=user&user=26126276%40N00"></script>
+        </div>
+<!-- End of Flickr Badge -->
 
-  <?php if ( is_404() || is_category() || is_day() || is_month() || is_year() || is_search() || is_paged() ) { ?> 
-  <section class="widget">
+        
+    </section>
     
-    <?php /* If this is a 404 page */ if (is_404()) { ?>
-    <?php /* If this is a category archive */ } elseif (is_category()) { ?>
-    <p>You are currently browsing the archives for the <?php single_cat_title(''); ?> category.</p>
-
-    <?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-    <p>You are currently browsing the <a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a> blog archives
-    for the day <?php the_time('l, F jS, Y'); ?>.</p>
-
-    <?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-    <p>You are currently browsing the <a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a> blog archives
-    for <?php the_time('F, Y'); ?>.</p>
-
-    <?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-    <p>You are currently browsing the <a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a> blog archives
-    for the year <?php the_time('Y'); ?>.</p>
-
-    <?php /* If this is a search result */ } elseif (is_search()) { ?>
-    <p>You have searched the <a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a> blog archives
-    for <strong>'<?php the_search_query(); ?>'</strong>. If you are unable to find anything in these search results, you can try one of these links.</p>
-
-    <?php /* If this set is paginated */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-    <p>You are currently browsing the <a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a> blog archives.</p>
-
-    <?php } ?>
-
-  </section>
-  <?php }?>
-  
-  <nav role="navigation">
-    <?php wp_list_pages('title_li=<h2>Pages</h2>' ); ?>
-
-    <h2>Archives</h2>
-    <ul>
-      <?php wp_get_archives('type=monthly'); ?>
-    </ul>
-
-    <?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
-  </nav>
+    <section>
+        <?php get_search_form(); ?>
+    </section>
 
 </aside>
 <?php ?>

@@ -6,7 +6,7 @@
 
 define( 'NT_THEME', get_bloginfo( 'template_directory' ) );
 
-// require_once( NT_THEME . '/WPThumb/wpthumb.php' );
+include_once( NT_THEME . '/WPThumb/wpthumb.php' );
 
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 50, 50, true ); 

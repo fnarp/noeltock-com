@@ -174,16 +174,19 @@ General Typography
     font-style: normal;
 }
 
+
 @font-face {
-    font-family: 'CPMono_v07Plain';
-    src: url('../font-face/CPMono_v07_Plain-webfont.eot');
-    src: url('../font-face/CPMono_v07_Plain-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../font-face/CPMono_v07_Plain-webfont.woff') format('woff'),
-         url('../font-face/CPMono_v07_Plain-webfont.ttf') format('truetype'),
-         url('../font-face/CPMono_v07_Plain-webfont.svg#CPMono_v07Plain') format('svg');
+    font-family: 'Droid';
+    src: url('../font-face/DroidSansMono-webfont.eot');
+    src: url('../font-face/DroidSansMono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font-face/DroidSansMono-webfont.woff') format('woff'),
+         url('../font-face/DroidSansMono-webfont.ttf') format('truetype'),
+         url('../font-face/DroidSansMono-webfont.svg#DroidSansMonoRegular') format('svg');
     font-weight: normal;
     font-style: normal;
+
 }
+
 
 
 

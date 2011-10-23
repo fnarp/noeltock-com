@@ -30,7 +30,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script src="<?php echo NT_THEME; ?>/js/kerning.min.js"></script>
     <script src="<?php echo NT_THEME; ?>/js/less-1.1.3.min.js"></script>
-    <script src="<?php echo NT_THEME; ?>/js/jquery.backstretch.min.js"></script>
+
   
     <!-- pingback -->
     
@@ -39,8 +39,19 @@
     <!-- wp head -->
     
     <?php wp_head(); ?>
+    
+    <script>
+        jQuery(document).ready(function(){
+                jQuery(".social-icon").hover(
+                function() {
+                        jQuery(this).css("background").stop().animate({"opacity": "0"}, "slow");
+                },
+                function() {
+                        jQuery(this).css("background").stop().animate({"opacity": "1"}, "slow");
+                });
+        });
+    </script>
 
-   
 </head>
 
 <!--[if lt IE 7 ]> <body <?php body_class('ie6'); ?>> <![endif]-->
