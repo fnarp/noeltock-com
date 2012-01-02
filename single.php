@@ -19,7 +19,9 @@ get_header(); ?>
         <div class="eightcol">  
         <header>
             <h1 class="post-title"><?php the_title(); ?></h1>
-            <div class="post-meta"><time datetime="<?php the_time('Y-m-d')?>"><?php the_time('F jS, Y') ?></time> | Posted in <?php the_category(', ') ?> | <span style="position:relative;top:4px;left:2px;"><g:plusone size="small" annotation="inline" width="300"></g:plusone></span></div>
+            <div class="post-meta">
+                <div>Written by <a href="https://plus.google.com/109589976053318296329?rel=author">Noel Tock</a></div>
+                <time datetime="<?php the_time('Y-m-d')?>"><?php the_time('F jS, Y') ?></time> | Posted in <?php the_category(', ') ?> | <span style="position:relative;top:6px;left:2px;"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="noeltock">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></span> | <span style="position:relative;top:6px;left:2px;"><g:plusone size="medium" annotation="inline" width="300"></g:plusone></span></div>
         </header> 
         </div>
         <div class="fourcol last"></div>    
@@ -27,37 +29,13 @@ get_header(); ?>
       
     <!-- post -->
     
-    <div class="row">
+    <div class="row post-content">
     <div class="eightcol"> 
     <?php the_content('Read the rest of this entry &raquo;'); ?>
-    <?php wp_link_pages(array('before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
-    <?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
-    <footer>
-      <p>This entry was posted by <?php the_author() ?>
-      on <time datetime="<?php the_time('Y-m-d')?>"><?php the_time('l, F jS, Y') ?></time>
-      at <time><?php the_time() ?></time>
-      and is filed under <?php the_category(', ') ?>.
-      You can follow any responses to this entry through the <?php post_comments_feed_link('RSS 2.0'); ?> feed.
+        <div class="clearfix" style="margin-top:50px;"></div>
+    <?php comments_template( '', true ); ?>    
 
-      <?php if ( comments_open() && pings_open() ) {
-        // Both Comments and Pings are open ?>
-        You can <a href="#respond">leave a response</a>, or <a href="<?php trackback_url(); ?>" rel="trackback">trackback</a> from your own site.
-
-      <?php } elseif ( !comments_open() && pings_open() ) {
-        // Only Pings are Open ?>
-        Responses are currently closed, but you can <a href="<?php trackback_url(); ?> " rel="trackback">trackback</a> from your own site.
-
-      <?php } elseif ( comments_open() && !pings_open() ) {
-        // Comments are open, Pings are not ?>
-        You can skip to the end and leave a response. Pinging is currently not allowed.
-
-      <?php } elseif ( !comments_open() && !pings_open() ) {
-        // Neither Comments, nor Pings are open ?>
-        Both comments and pings are currently closed.
-
-      <?php } edit_post_link('Edit this entry','','.'); ?>
-      </p>
-    </footer>
+     
     </div>
  
 

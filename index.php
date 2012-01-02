@@ -28,7 +28,7 @@ get_header(); ?>
           <div class="post-thumb"><a href="<?php the_permalink() ?>" rel="bookmark"><?php if ( function_exists("has_post_thumbnail") && has_post_thumbnail() ) { the_post_thumbnail('index-thumb', array("class" => "alignleft post_thumbnail")); } ?></a></div>
           <div class="post-text">
               <h2 class="post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-              <div class="post-meta"><time datetime="<?php the_time('Y-m-d')?>"><?php the_time('F jS, Y') ?></time> | Posted in <?php the_category(', ') ?></div>
+              <div class="post-meta"><time datetime="<?php the_time('Y-m-d')?>"><?php the_time('F jS, Y') ?></time> | Posted in <?php the_category(', ') ?> | <?php comments_popup_link(__(''), __('- 1 Comment'), __('- % Comments')); ?></div>
               <?php the_excerpt(); ?>
           </div>
         </header>

@@ -68,7 +68,15 @@ span.notice {
         background-color: @notice-bg;
         padding:2px 4px;
         .border-radius(2px);
-        text-shadow: 0 1px 0 #fef6da;
+        text-shadow: 0 1px 0 rgba(255,255,255,.7);
+}
+
+span.notice-2 {
+        color: @nt-regular;
+        background-color: (@nt-regular + #888);
+        padding:2px 4px;
+        .border-radius(2px);
+        text-shadow: 0 1px 0 rgba(255,255,255,.5);
 }
 
 span.nt-active {
@@ -96,7 +104,7 @@ h1, h2, h3, h4, h5, h6{
         color: ( @nt-regular - #111 );
 	font-weight:normal;
 	line-height: ( @baseline / 2 );
-	margin: ( @baseline ) 0;
+	margin: ( @baseline * 0.8 ) 0;
 }
 
 
@@ -119,14 +127,19 @@ h1#title-blog {
 }
 
 h1 {font-size:(@fontsize * 2)}
-h2 {font-size:(@fontsize * 1.5)}
-h3 {font-size:(@fontsize * 2)}
+h2 {font-size:(@fontsize * 2)}
+h3 {font-size:(@fontsize * 1.5)}
 
 p, ul, ol, blockquote, img  {
         display:block;
         font-size: @fontsize;
-	margin: 0 0 ( @baseline ) 0;
 }
+
+.post-content img {
+	margin: ( @baseline ) 0 ( @baseline ) 0;
+}
+
+.post-content p:first-child {margin-top:0px !important;}
 
 /* Custom Typography
 * ----------------------------------------------------------------- */ 
@@ -156,6 +169,7 @@ nav#topbar {
         margin:0;
         padding:7px;
         .box-shadow;
+        overflow:auto;
 }
 
 nav#topbar #logo {
@@ -163,18 +177,22 @@ nav#topbar #logo {
 }
 
 nav#topbar #logo, nav#topbar #logo img {
-        margin:0;
+        margin:0 !important;
+        padding:0 !important;
         line-height:0px;
+        width:25px;
+        height:25px;
 }
 
 #navigation {
-        float:right;
+        float:left;
         width:60%;
+        overflow:auto;
 }
 
 #navigation .nav-link {
         padding-left:40px;
-        float:right;
+        float:left;
 }
 
 #navigation .nav-link a {
@@ -248,7 +266,7 @@ section#profile p {margin:0;padding:0;}
         margin-right:0px !important;
 }
 
-.flickr_badge_image img {.border-radius(20px);opacity:0.5;}
+.flickr_badge_image img {.border-radius(20px);opacity:0.5;margin:0;padding:0;}
 .flickr_badge_image img:hover {opacity:1;}
         
 
@@ -273,8 +291,17 @@ section#profile p {margin:0;padding:0;}
 }
 
 #social-icons {
+        position:relative;
         min-height:70px;
         overflow:hidden !important;
+}
+
+#social-icons-home {
+        position:relative;
+        min-height:70px;
+        overflow:hidden !important;
+        width:350px;
+        margin:0 auto;
 }
 
 .social-outer-bg {
@@ -439,14 +466,26 @@ ul#primary-navigation li a:hover {
 /* Home
 * ----------------------------------------------------------------- */
 
+h1.home-title {
+    font-size:120px;
+    margin:60px 0 20px 0;
+    color:(@nt-regular - #333);
+}
+
+h2.home-tagline {
+    font-size:41px;
+    opacity:0.5;
+    margin:20px 0;
+}
+
 .home-project {
         padding-left:120px;
         position:relative;
-        min-height:120px;
+        min-height:110px;
 }
 
 .home-project .title {
-        font-weight:bold;
+        font-family:@museo;
         font-size:20px;
 }
 
@@ -509,6 +548,13 @@ ul#primary-navigation li a:hover {
 .post img.nt-image {
     .border-radius(20px);
 }
+
+.post img.nt-image2 {
+    .border-radius(20px);
+    .box-shadow (0px 0px 3px 1px rgba(0, 0, 0, 0.3));
+}
+
+
 
 .like-this-post {
         .border-radius(10px);

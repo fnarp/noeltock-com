@@ -8,7 +8,7 @@
 </div> <!--! end of .container -->
     <footer id="terminal-footer">
             This site is proudly powered by
-            <a href="http://wordpress.org/">WordPress</a>, and using my own theme, <a href="https://github.com/noeltock/noeltock-com">noeltock-com</a> - <?php echo get_num_queries(); ?> queries. <?php timer_stop(1); ?> seconds.
+            <a rel="nofollow" href="http://wordpress.org/">WordPress</a>, and using my own theme, <a rel="nofollow" href="https://github.com/noeltock/noeltock-com">noeltock-com</a> - <?php echo get_num_queries(); ?> queries. <?php timer_stop(1); ?> seconds.
     </footer>
 
 

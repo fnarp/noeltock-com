@@ -13,7 +13,7 @@
 
     <section id="social-icons">
         <div class="social-outer-bg twitter">
-        <a href="http://twitter.com/#!/noeltock">
+        <a rel="nofollow" href="http://twitter.com/#!/noeltock">
             <div class="social-icon">
                 <div class="social-inner-bg twitter-bg">
                     <div class="social-logo twitter-logo"></div>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="social-outer-bg dribbble">
-        <a href="http://dribbble.com/noeltock">
+        <a rel="nofollow" href="http://dribbble.com/noeltock">
             <div class="social-icon">
                 <div class="social-inner-bg dribbble-bg">
                     <div class="social-logo dribbble-logo"></div>
@@ -33,7 +33,7 @@
         </div>
         
         <div class="social-outer-bg forrst">
-        <a href="http://forrst.com/people/noeltock">
+        <a rel="nofollow" href="http://forrst.com/people/noeltock">
             <div class="social-icon">
                 <div class="social-inner-bg forrst-bg">
                     <div class="social-logo forrst-logo"></div>
@@ -43,7 +43,7 @@
         </div>
         
         <div class="social-outer-bg flickr">
-        <a href="http://www.flickr.com/photos/noelinthebahamas">
+        <a rel="nofollow" href="http://www.flickr.com/photos/noelinthebahamas">
             <div class="social-icon">
                 <div class="social-inner-bg flickr-bg">
                     <div class="social-logo flickr-logo"></div>
@@ -113,9 +113,9 @@
         
     </section>
     
-    <section>
+    <!-- <section>
         <?php get_search_form(); ?>
-    </section>
+    </section> -->
 
 </aside>
 <?php ?>
