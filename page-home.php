@@ -61,9 +61,17 @@ get_header(); ?>
                     </div>
 
                 </section>
+                <h3>online mentions & presentations</h3>
+
+                <ul class="home-mentions">
+                    <li><img src="<?php echo NT_THEME; ?>/images/n-wpcandy.jpg" /><a rel="nofollow" href="http://www.slideshare.net/ntock/lessons-learned-from-selling-wordpress-themes"><strong>WPCandy</strong> - Various articles relating to Theme Force</a></li>
+                    <li><img src="<?php echo NT_THEME; ?>/images/n-wpmu.jpg" /><a rel="nofollow" href="http://wpmu.org/wordcamp-uk-interview-noel-tock-theme-force/"><strong>WPMU</strong> - Video Interview at WordCamp UK</a></li>
+                    <li><img src="<?php echo NT_THEME; ?>/images/n-slideshare.jpg" /><a rel="nofollow" href="http://www.slideshare.net/ntock/lessons-learned-from-selling-wordpress-themes"><strong>SlideShare</strong> - Presentation on WordPress Themes at WordCamp UK</a></li>
+                    <li><img src="<?php echo NT_THEME; ?>/images/n-designinstruct.jpg" /><a rel="nofollow" href="http://designinstruct.com/iconlogo-design/create-a-wooden-social-media-icon-quickly-with-photoshop/"><strong>Design Instruct</strong> - Tutorial on creating Social Media Icons</a></li>
+                </ul>
 
                 <h3>latest posts</h3>
-                    <ul>
+                    <ul class="home-post-list">
                         <?php
                         wp_reset_query();
                             $args = array('post_status' => 'publish', 'numberposts' => 5, 'order'=> 'DESC', 'orderby' => 'ID');
