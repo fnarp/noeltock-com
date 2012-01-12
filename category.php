@@ -7,11 +7,11 @@
 get_header(); ?>
 
 <!-- title & meta -->
-
+<?php if (have_posts()) : ?>
 <div class="row">   
     <div class="eightcol">  
     <header>
-        <h1 class="post-title" style="margin-bottom:40px">the blog</h1>
+        <h1 class="post-title" style="margin-bottom:40px"><?php single_cat_title(); ?></h1>
         <div class="post-meta"></div>
     </header> 
     </div>
@@ -20,7 +20,7 @@ get_header(); ?>
 
 <div id="main" class="row">
     <div class="eightcol">  
-  <?php if (have_posts()) : ?>
+
     <?php while (have_posts()) : the_post(); ?>
 
       <article <?php post_class('index-post') ?> id="post-<?php the_ID(); ?>">
